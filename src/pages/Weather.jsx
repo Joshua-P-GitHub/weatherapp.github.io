@@ -28,7 +28,7 @@ const getWeather = async (state) => {
     
   }
 }
-
+//
 async function handleSubmit(e){
   if(e.key === 'Enter'){
 
