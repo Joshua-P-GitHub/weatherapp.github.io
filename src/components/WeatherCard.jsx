@@ -1,9 +1,13 @@
 import React from 'react'
+import {motion} from "framer-motion"
 
 export default function WeatherCard(props) {
   return (
     <div className="container" style={{backgroundImage: `url(${props.backGround})`}}>
-    <div className="card glass">
+    <motion.div className="card glass"
+    animate={{ opacity: [0 ,1], y: [30, 0] }}
+    exit={{opacity: [1,0]}}
+    transition={{ duration: 5 }}>
       <div className='card-header'>
         <h1>{props.name}</h1>
       </div>
@@ -33,7 +37,12 @@ export default function WeatherCard(props) {
         <h3>Deg: 277</h3>
         </div>
       </div>
-    </div>            
+      <div className='card-footer' onClick={() => {
+        props.delete(props.keyName)
+      }}>
+        <h3>Remove</h3>
+      </div>
+    </motion.div>            
     </div> 
   )
 }
