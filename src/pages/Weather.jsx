@@ -51,6 +51,8 @@ const sleep = async (milliseconds) => {
     return setTimeout(resolve, milliseconds)
   })
 }
+
+const API_KEY = '0a135a1138c0aa9c08da8f85f6c3d9f9'
 export default function Weather() {
   let go = false
   const [places, changePlaces] = useState({})
@@ -65,7 +67,7 @@ export default function Weather() {
     let stateName;
     go = false
     try {
-      const response = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${process.env.REACT_APP_WEATHER_API_KEY}`)
+      const response = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${API_KEY}`)
       if (response.data.length > 0) {
         go = true
         if (state !== ' ') {
@@ -91,7 +93,7 @@ export default function Weather() {
           }
         }
         let cityName = response.data[0].name
-        const weather = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`)
+        const weather = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`)
         return { ...weather.data, stateName, cityName }
       } else {
       }
