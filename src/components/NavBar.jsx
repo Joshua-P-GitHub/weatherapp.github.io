@@ -5,7 +5,7 @@ export default function NavBar(props) {
   return (
     <div id='nav-bar' className='sunny'>
       <div id='nav-bar-left'>
-        <h3>New York</h3>
+        <h3>WeatherApp</h3>
       </div>
       <div id='nav-bar-right'>
         <Link to={'/'}>

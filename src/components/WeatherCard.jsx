@@ -32,9 +32,9 @@ export default function WeatherCard(props) {
           <h3>WIND</h3>
         </div>
         <div className='wind-data'>
-        <h3>Speed: 4.1</h3>
-        <h3>Gust: 6.78</h3>
-        <h3>Deg: 277</h3>
+        <h3>Speed: {props.wind.speed}</h3>
+        {props.wind.gust && <h3>Gust: {props.wind.gust}</h3>}
+        <h3>Deg: {props.wind.deg}</h3>
         </div>
       </div>
       <div className='card-footer' onClick={() => {

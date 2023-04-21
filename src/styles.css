@@ -3,6 +3,7 @@
 :root {
   --main: #2E282A;
   --secondary: #76B041;
+  --niceblue: #0B5563
 }
 
 * {
@@ -62,7 +63,7 @@ a:hover{
   flex-direction: column;
   align-items: center;
   gap: 50px;
-  color: var(--secondary);
+  color: var(--niceblue);
 }
 
 #unlogged-main-text{
@@ -72,8 +73,6 @@ a:hover{
   text-align: center;
   font-size: 80px;
   gap: 55px;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
 
 }
 
@@ -85,7 +84,7 @@ a:hover{
   width: 50%;
   font-size: 25px;
   border-radius: 15px;
-  color: var(--secondary);
+  color: var(--niceblue);
   background-color: white;
   transition: .5s;
 }
@@ -95,7 +94,7 @@ a:hover{
 }
 
 #unlogged-main-btn:hover{
-  background-color: var(--secondary);
+  background-color: var(--niceblue);
   color: var(--main);
 }
 
@@ -103,13 +102,15 @@ a:hover{
   background-color: var(--main);
 }
 
-.full-input {
+header .full-input {
   width: 100%;
   font-size: 40px;
   text-align: center;
   outline: none;
   border: none;
   position: absolute;
+  background: none;
+  border-radius: 0px;
 }
 .container{
   display: flex;
@@ -141,6 +142,8 @@ a:hover{
   border:1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
+
+
 
 .card-header{
   padding: 15px;

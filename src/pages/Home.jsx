@@ -4,6 +4,7 @@ import UnloggedMain from '../components/UnloggedMain'
 import sunnyBG from '../public/sunny.jpg'
 import rainyBG from '../public/rainy2.jpg'
 import cloudyBG from '../public/cloudy.jpg'
+import mistBG from '../public/mist.jpg'
 
 const sleep = async (milliseconds) => {
   await new Promise(resolve => {
@@ -46,12 +47,14 @@ export default function Home() {
       } else{
         await sleep(((1 / 60) * 1000))
         console.log(index);
-        if (index === opacityArr.length - 1 && weather === 'CLOUDY'){
+        if (index === opacityArr.length - 1 && weather === 'MISTY'){
           setweather('SUNNY')
         } else if (index === opacityArr.length - 1 && weather === 'SUNNY'){
           setweather('RAINY')
         } else if (index === opacityArr.length - 1 && weather === 'RAINY'){
           setweather('CLOUDY')
+        } else if (index === opacityArr.length - 1 && weather === 'CLOUDY'){
+          setweather('MISTY')
         }
         setIndex(index - 1)  
       }
@@ -60,7 +63,7 @@ export default function Home() {
   })
   return (
     <>
-    <div id='bg-image' style={{backgroundImage: `url(${weather === 'SUNNY' ? sunnyBG : weather === 'RAINY' ? rainyBG : cloudyBG})`, position: 'absolute', zIndex: -10, height: '100vh', width: '100vw', opacity: `${opacityArr[index]}`, backgroundSize: '1920px 1080px'}}>
+    <div id='bg-image' style={{backgroundImage: `url(${weather === 'SUNNY' ? sunnyBG : weather === 'RAINY' ? rainyBG : weather === 'CLOUDY' ? cloudyBG : mistBG})`, position: 'absolute', zIndex: -10, height: '100vh', width: '100vw', opacity: `${opacityArr[index]}`, backgroundSize: '1920px 1080px'}}>
     </div>
    <div id='home' style={{opacity: 1}}>
     <header>
